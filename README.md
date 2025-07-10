@@ -58,4 +58,5 @@ It provides a visual summary using charts and allows downloading of results as a
 | `pyspellchecker` / `TextBlob` | Spelling and grammar checks |
 | `NLTK - WordNet` | Synonym lookup for rephrasing suggestions |
 
+----------
 

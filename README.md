@@ -1,7 +1,19 @@
 # Plagiarism-Detection-Tool
 
-A lightweight plagiarism checker built using **classical string matching algorithms** (KMP, LCS, Rabin-Karp, Edit Distance) and modern UI with **Streamlit**.  
-This project is fully rooted in **Data Structures and Algorithms (DSA)** logic.
+## 📘 Plagiarism Detection
+
+Plagiarism refers to the act of copying or closely imitating the language, ideas, or work of another author without proper acknowledgment. It is a major concern in academics, publishing, and content creation. Detecting plagiarism is essential to uphold originality, intellectual integrity, and fairness in evaluation systems.
+
+---
+
+## 🎯 Project Description
+
+This tool is a lightweight plagiarism checker built entirely on **classical string matching algorithms** such as **KMP**, **Rabin-Karp**, **LCS**, and **Edit Distance** — showcasing the real-world power of **Data Structures and Algorithms (DSA)** without relying on AI/ML models.
+
+Users can input text manually or upload `.txt`, `.pdf`, or `.docx` files. The tool scans for exact and near-duplicate matches, provides a plagiarism score, detects grammar and spelling errors, and even suggests rephrased alternatives using logic-based synonym replacement.
+
+The clean UI is powered by **Streamlit**, and results are visualized through charts and downloadable reports — delivering an intuitive experience backed by solid algorithmic foundations.
+
 
 ---
 

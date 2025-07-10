@@ -42,9 +42,3 @@ This project is fully rooted in **Data Structures and Algorithms (DSA)** logic.
 
 ---
 
-## 🚀 How to Run
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/plagiarism-detector-dsa.git
-   cd plagiarism-detector-dsa

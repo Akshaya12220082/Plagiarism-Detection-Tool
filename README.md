@@ -1,56 +1,61 @@
-# Plagiarism-Detection-Tool
+# 🧠 Plagiarism Detection Tool
 
 ## 📘 Plagiarism Detection
 
-Plagiarism refers to the act of copying or closely imitating the language, ideas, or work of another author without proper acknowledgment. It is a major concern in academics, publishing, and content creation. Detecting plagiarism is essential to uphold originality, intellectual integrity, and fairness in evaluation systems.
+Plagiarism is the act of copying someone else's content without proper acknowledgment, which is unethical and unacceptable in academics and content creation.  
+This tool aims to detect plagiarism in textual content using efficient string matching algorithms instead of relying on machine learning or AI.
 
 ---
 
 ## 🎯 Project Description
 
-This tool is a lightweight plagiarism checker built entirely on **classical string matching algorithms** such as **KMP**, **Rabin-Karp**, **LCS**, and **Edit Distance** — showcasing the real-world power of **Data Structures and Algorithms (DSA)** without relying on AI/ML models.
+This web application allows users to **paste or upload text files** and check them for plagiarism using classical DSA techniques.  
+After analysis, the user is provided with:
+- Plagiarism percentage
+- Matching content blocks
+- Grammar/spelling issues
+- Optional rephrasing suggestions
 
-Users can input text manually or upload `.txt`, `.pdf`, or `.docx` files. The tool scans for exact and near-duplicate matches, provides a plagiarism score, detects grammar and spelling errors, and even suggests rephrased alternatives using logic-based synonym replacement.
-
-The clean UI is powered by **Streamlit**, and results are visualized through charts and downloadable reports — delivering an intuitive experience backed by solid algorithmic foundations.
-
+It provides a visual summary using charts and allows downloading of results as a PDF report.
 
 ---
 
 ## 🔍 Features
 
 - ✅ **Text Comparison** using:
-  - KMP (Knuth-Morris-Pratt)
+  - Knuth-Morris-Pratt (KMP)
   - Rabin-Karp
   - Longest Common Subsequence (LCS)
   - Edit Distance
-- 📄 Upload support: `.txt`, `.pdf`, `.docx`
-- 📊 **Visual Reports**: Plagiarism %, Spell Check, Grammar Issues
-- 📈 Real-time **Charts**: Bar, Pie, Progress
-- ✨ **Rephrasing Suggestions** (DSA + WordNet-based)
-- 🧾 Exportable **PDF Report**
-- 💡 Fully modular for adding new algorithms
+- 📄 **Supports file uploads**: `.txt`, `.pdf`, `.docx`
+- 📊 **Visual feedback**: plagiarism %, spelling issues, grammar highlights
+- 📈 **Charts**: bar, pie, progress indicators (Chart.js)
+- ✨ **Rephrasing suggestions** using synonym replacement (WordNet logic)
+- 🧾 **PDF report generation**
+- 💡 **Modular and scalable** for new algorithms
 
 ---
 
 ## 🏗️ Tech Stack
 
 ### 💻 Frontend
-- [Streamlit](https://streamlit.io/) – Fast, clean UI like Grammarly
-- `Matplotlib` / `Plotly` – For dynamic chart visualizations
-- `streamlit-aggrid` – Tabular displays for matched phrases
+| Technology | Purpose |
+|------------|---------|
+| **HTML** | Structure of the web page |
+| **CSS** | Styling of UI components |
+| **JavaScript** | Event handling, data exchange with backend |
+| **Chart.js** | For plagiarism and grammar result visualizations |
+| **Bootstrap** | For responsive and clean layout |
 
 ### 🧠 Backend
-- **Python** – Core programming language
-- DSA Algorithms:
-  - `KMP`, `Rabin-Karp`, `LCS`, `Edit Distance`
-  - `Trie`, `Suffix Array`, `Heap`, `Priority Queue`
-- `python-docx` / `PyMuPDF` – File reading (DOCX, PDF)
-- `fpdf` / `reportlab` – Generate downloadable PDF reports
+| Technology | Purpose |
+|------------|---------|
+| **Python** | Core programming language |
+| **Flask** | Backend web framework to handle routing and logic |
+| **DSA Algorithms** | KMP, LCS, Rabin-Karp, Edit Distance |
+| `python-docx` / `PyMuPDF` | For reading `.docx` and `.pdf` file uploads |
+| `fpdf` / `reportlab` | Generate downloadable plagiarism report in PDF format |
+| `pyspellchecker` / `TextBlob` | Spelling and grammar checks |
+| `NLTK - WordNet` | Synonym lookup for rephrasing suggestions |
 
-### 🔤 NLP Tools
-- `TextBlob` or `PySpellChecker` – Spelling and grammar checks
-- `WordNet` from `NLTK` – Synonym-based rephrasing (non-ML)
-
----
 

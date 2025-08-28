@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plagiarism Detection Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 90%;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .result {
+      margin-top: 25px;
+      text-align: left;
+    }
+    .highlight {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Plagiarism Detection</h1>
+    <form action="/detect" method="post">
+      <textarea name="text" placeholder="Paste your text here..."></textarea><br>
+      <button type="submit">Check</button>
+    </form>
+    
+    {% if plagiarism_percentage %}
+      <div class="result">
+        <h2>Result</h2>
+        <p><b>Plagiarism Percentage:</b> <span class="highlight">{{ plagiarism_percentage }}%</span></p>
+        <h3>Matched Sentences:</h3>
+        <ul>
+          {% for sentence in matched_sentences %}
+            <li>{{ sentence }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

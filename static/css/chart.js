@@ -1,4 +1,3 @@
-// static/js/chart.js
 (function(){
   function getCtx(id){ const el = document.getElementById(id); return el && el.getContext ? el.getContext('2d') : null; }
 
@@ -58,7 +57,7 @@
     if(!ctx) return;
     const blocks = Array.isArray(RESULTS.matched_blocks) ? RESULTS.matched_blocks : [];
     const labels = blocks.map((b,i)=>`Block ${i+1}`);
-    const data = blocks.map(b => Math.min(1000, b.length)); // cap for display
+    const data = blocks.map(b => Math.min(1000, b.length));
     new Chart(ctx, {
       type: 'bar',
       data: {
@@ -77,7 +76,6 @@
     });
   }
 
-  // init when DOM ready
   document.addEventListener('DOMContentLoaded', function(){
     try{
       renderDoughnut();

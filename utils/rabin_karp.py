@@ -1,14 +1,16 @@
-# utils/rabin_karp.py
 import re
 from collections import defaultdict
 
-def rabin_karp_common_substrings(a, b, min_len=20, max_matches=10):
+def rabin_karp_common_substrings(a: str, b: str, min_len: int = 20, max_matches: int = 10):
     """
-    Character-level Rabin-Karp search for common substrings.
-    Returns list of matched unique substrings (descending length).
+    Returns list of matched unique substrings (descending length) using rolling hash.
+    Character-level algorithm; normalizes whitespace and lowers case.
     """
-    a_norm = ' '.join(a.split()).lower()
-    b_norm = ' '.join(b.split()).lower()
+    if not a or not b:
+        return []
+
+    a_norm = " ".join(a.split()).lower()
+    b_norm = " ".join(b.split()).lower()
     la, lb = len(a_norm), len(b_norm)
     if la < min_len or lb < min_len:
         return []
@@ -17,10 +19,9 @@ def rabin_karp_common_substrings(a, b, min_len=20, max_matches=10):
     seen = set()
 
     base = 256
-    mod = 2**61 - 1
+    mod = 2**61 - 1  # large prime-ish
 
     max_possible = min(la, lb)
-    # limit start length to avoid too heavy work on huge docs
     start_len = min(max_possible, 300)
 
     for L in range(start_len, min_len - 1, -1):
@@ -28,8 +29,8 @@ def rabin_karp_common_substrings(a, b, min_len=20, max_matches=10):
             break
         powL = pow(base, L, mod)
         hashes = defaultdict(list)
+
         h = 0
-        # build hashes for 'a'
         for i in range(la):
             h = (h * base + ord(a_norm[i])) % mod
             if i >= L - 1:
@@ -37,7 +38,7 @@ def rabin_karp_common_substrings(a, b, min_len=20, max_matches=10):
                     h = (h - ord(a_norm[i - L]) * powL) % mod
                 start = i - L + 1
                 hashes[h].append(start)
-        # scan b
+
         h = 0
         for j in range(lb):
             h = (h * base + ord(b_norm[j])) % mod

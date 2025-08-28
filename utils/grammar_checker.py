@@ -1,10 +1,9 @@
-# utils/grammar_checker.py
 import re
 from spellchecker import SpellChecker
 from textblob import TextBlob
 import nltk
 
-# ensure wordnet available
+# ensure wordnet corpus
 try:
     nltk.data.find('corpora/wordnet')
 except Exception:
@@ -14,26 +13,26 @@ from nltk.corpus import wordnet
 
 spell = SpellChecker()
 
-def check_spelling_and_grammar(text, max_suggestions=20):
+def check_spelling_and_grammar(text: str, max_suggestions: int = 20):
     """
-    Returns a list of dicts: {'word': <wrong>, 'suggestions': [..], 'context': <snippet>}
-    Uses pyspellchecker for misspell detection and TextBlob.correct() for quick grammar corrections (light).
+    Returns a list of dicts with keys:
+      - word: the misspelled word
+      - suggestions: list of candidate corrections
+      - context: small snippet
     """
     words = re.findall(r'\w+', text.lower())
     miss = list(spell.unknown(words))
     results = []
     for w in miss[:max_suggestions]:
         suggestions = list(spell.candidates(w))[:5]
-        # context: find first occurrence and show small surrounding
         idx = text.lower().find(w)
-        context = text[max(0, idx - 30): idx + 30] if idx != -1 else ''
+        context = text[max(0, idx-30): idx+30] if idx != -1 else ''
         results.append({'word': w, 'suggestions': suggestions, 'context': context})
     return results
 
-def rephrase_snippet(snippet, max_changes=3):
+def rephrase_snippet(snippet: str, max_changes: int = 3):
     """
-    Very lightweight rephraser: replace up to max_changes words with a WordNet synonym when available.
-    This preserves structure and is deterministic-ish.
+    Replace up to max_changes words with a WordNet synonym when available.
     """
     tokens = re.findall(r"\w+|\W+", snippet)
     changes = 0

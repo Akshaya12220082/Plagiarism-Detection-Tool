@@ -1,0 +1,7 @@
+Flask==2.2.5
+python-docx==0.8.11
+PyMuPDF>=1.22.5
+pyspellchecker==0.6.3
+nltk==3.8.1
+textblob==0.17.1
+python-pptx==0.6.21

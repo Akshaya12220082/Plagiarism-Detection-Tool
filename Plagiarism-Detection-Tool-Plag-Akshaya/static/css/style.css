@@ -1,0 +1,77 @@
+:root{
+  --muted: #6b7280;
+  --accent: #6d28d9;
+  --card-bg: #ffffff;
+}
+
+body{
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#fbfdff 0%, #ffffff 40%);
+  color: #111827;
+  min-height: 100vh;
+}
+
+.hero{
+  padding: 32px 12px 10px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.display-heading{
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 2.3rem;
+  background: -webkit-linear-gradient(#111827, #3b3b3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline{
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.container{
+  max-width: 1100px;
+}
+
+/* cards */
+.card{
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(16,24,40,0.06);
+}
+
+/* big percent */
+.big-percent{
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 8px 0 12px;
+}
+
+/* matched blocks */
+.matched-block{
+  background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(250,250,255,.95));
+  border-left: 4px solid var(--accent);
+}
+
+.matched-text{
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.rephrase-text{
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: #f7f7fb;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+/* responsiveness */
+@media (max-width: 767px) {
+  .display-heading { font-size: 1.6rem; }
+  .big-percent { font-size: 1.6rem; }
+}
